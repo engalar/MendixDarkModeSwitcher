@@ -1,17 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?>
-<widget id="wengao.darkmodeswitcher.DarkModeSwitcher" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
-        supportedPlatform="Web"
-        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
-    <name>Dark Mode Switcher</name>
-    <description>My widget description</description>
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="wengao.darkmodeswitcher.DarkModeSwitcher" pluginWidget="true" needsEntityContext="false" offlineCapable="true" supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>DarkMode Switcher</name>
+    <description>Allows users to switch between light, dark, and system theme preferences.</description>
     <icon/>
     <properties>
         <propertyGroup caption="General">
-            <property key="sampleText" type="string" required="false">
-                <caption>Default value</caption>
-                <description>Sample text input</description>
+            <property key="lightClassName" type="string" required="true" defaultValue="theme-light">
+                <caption>Light Mode Class</caption>
+                <description>CSS class to apply for light mode.</description>
             </property>
+            <property key="darkClassName" type="string" required="true" defaultValue="theme-dark">
+                <caption>Dark Mode Class</caption>
+                <description>CSS class to apply for dark mode.</description>
+            </property>
+            <property key="storageKey" type="string" required="true" defaultValue="mxUserThemePreference">
+                <caption>Local Storage Key</caption>
+                <description>Key used to store the user's preference in browser local storage.</description>
+            </property>
+            <property key="defaultTheme" type="enumeration" defaultValue="system">
+                <caption>Default Theme</caption>
+                <description>Theme to use if no preference is stored and system isn't followed initially.</description>
+                <enumerationValues>
+                    <enumerationValue key="light">Light</enumerationValue>
+                    <enumerationValue key="dark">Dark</enumerationValue>
+                    <enumerationValue key="system">System</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="uiType" type="enumeration" defaultValue="dropdown">
+                <caption>Control Type</caption>
+                <description>How the theme selector is displayed.</description>
+                <enumerationValues>
+                    <enumerationValue key="dropdown">Dropdown</enumerationValue>
+                    <enumerationValue key="buttons">Buttons</enumerationValue>
+                    <!-- Add radio buttons if desired -->
+                </enumerationValues>
+            </property>
+            <property key="targetSelector" type="string" required="false" defaultValue="body">
+                <caption>Target Selector</caption>
+                <description>CSS selector of the element to apply theme classes to (default: body).</description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Appearance">
+            <property key="buttonLabels" type="string" required="false" defaultValue="Light,Dark,System">
+                <caption>Button Labels (CSV)</caption>
+                <description>Comma-separated labels for Light, Dark, System buttons (if uiType is 'buttons').</description>
+            </property>
+            <!-- Add styling properties for the widget itself if needed -->
         </propertyGroup>
     </properties>
 </widget>

@@ -1,6 +1,68 @@
-/*
-Place your custom CSS here
-*/
-.widget-hello-world {
+/* src/ui/DarkModeSwitcher.css */
+.dark-mode-switcher-widget {
+    display: inline-block; /* Or block, depending on layout needs */
+}
 
+.dark-mode-switcher-select {
+    padding: 5px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff; /* Base background */
+    color: #333; /* Base text color */
+    cursor: pointer;
+}
+
+/* Style the dropdown when the page is in dark mode (optional, but nice) */
+body.theme-dark .dark-mode-switcher-select {
+    background-color: #444;
+    color: #eee;
+    border-color: #666;
+}
+
+.dark-mode-switcher-buttons {
+    display: flex;
+    gap: 5px;
+    border: 1px solid #ccc; /* Optional container border */
+    border-radius: 4px;
+    padding: 3px;
+    background-color: #f0f0f0; /* Optional container background */
+}
+
+.dark-mode-switcher-buttons button {
+    padding: 5px 10px;
+    border: 1px solid transparent; /* Border for spacing, transparent initially */
+    border-radius: 3px;
+    background-color: #e0e0e0;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.dark-mode-switcher-buttons button:hover {
+    background-color: #d0d0d0;
+}
+
+.dark-mode-switcher-buttons button.active {
+    background-color: #007bff; /* Example active color (Mendix blue) */
+    color: white;
+    border-color: #0056b3;
+}
+
+/* Style the buttons when the page is in dark mode */
+body.theme-dark .dark-mode-switcher-buttons {
+    border-color: #666;
+    background-color: #3a3a3a;
+}
+body.theme-dark .dark-mode-switcher-buttons button {
+    background-color: #555;
+    color: #eee;
+}
+body.theme-dark .dark-mode-switcher-buttons button:hover {
+    background-color: #666;
+}
+
+body.theme-dark .dark-mode-switcher-buttons button.active {
+    background-color: #4a9cff; /* Lighter blue for dark mode */
+    color: #111;
+    border-color: #3a8bf7;
 }
